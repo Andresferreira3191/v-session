@@ -11,11 +11,12 @@
     "url": "git+https://github.com/Andresferreira3191/v-session.git"
   },
   "keywords": [
-    "vue",
+    "vue js",
+    "vue js 2",
     "vue2",
     "session",
     "v-session",
-    "localestore"
+    "localstore"
   ],
   "author": "Andres Felipe Parra Ferreira",
   "license": "GPL",
