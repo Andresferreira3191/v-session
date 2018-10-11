@@ -1,6 +1,4 @@
 
-
-
 export default {
     install(vue, opts){   
         
@@ -15,7 +13,6 @@ export default {
         if(opts && 'unique' in opts && opts.unique) v_session.session = window.sessionStorage;
         else if(opts && 'unique' in opts && opts.unique == false) v_session.session = window.localStorage;
 
-        
         // Fun will happen here
         vue.prototype.$v_session = {            
             init: function(){
