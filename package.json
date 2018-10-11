@@ -24,5 +24,7 @@
     "url": "https://github.com/Andresferreira3191/v-session/issues"
   },
   "homepage": "https://github.com/Andresferreira3191/v-session#readme",
-  "dependencies": {}
+  "dependencies": {
+    "crypto-json": "^2.0.2"
+  }
 }
