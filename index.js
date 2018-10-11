@@ -23,7 +23,14 @@ export default {
                 window.onload = v_this.live;
                 document.onmousemove = v_this.refresh;
                 document.onkeypress = v_this.refresh;
-                var source = "Hello!";                        
+                var source = "Hello!";   
+                // sign with RSA SHA256
+                var jwt = require('jsonwebtoken');
+                //var cert = fs.readFileSync('@/assets/server.key');
+                var token = jwt.sign({
+                    data: 'Aqui si ahi plata'
+                  }, 'HolMundoComfenalcoSantander', { algorithm: 'ES512',audience:'www.comfenalcosantander.com.co' });
+                  console.log(token);
             },
             live: function(){
                 let v_this = vue.prototype.$v_session;

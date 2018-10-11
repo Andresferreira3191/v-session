@@ -24,7 +24,5 @@
     "url": "https://github.com/Andresferreira3191/v-session/issues"
   },
   "homepage": "https://github.com/Andresferreira3191/v-session#readme",
-  "dependencies": {
-    "jsonwebtoken": "^8.3.0"
-  }
+  "dependencies": {}
 }
