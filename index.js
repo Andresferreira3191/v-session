@@ -13,6 +13,9 @@ export default {
         if(opts && 'unique' in opts && opts.unique) v_session.session = window.sessionStorage;
         else if(opts && 'unique' in opts && opts.unique == false) v_session.session = window.localStorage;
         
+        if(opts && 'expire' in opts && opts.expire) v_session.expire_session = opts.expire;
+        if(opts && 'inactive' in opts && opts.inactive) v_session.inactive_session = opts.inactive;
+
         // Fun will happen here
         vue.prototype.$v_session = {            
             init: function(){
