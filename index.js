@@ -57,8 +57,11 @@ export default {
                 if (v_session.encrypt && v_session.secret_key!==null){  
                   var encrypt = ('encrypt' in session_data)? session_data['encrypt'] : false;
                   
-                  if(encrypt==true){                
-                    session_data   = this.decrypt(session_data);
+                  if(encrypt==true){ 
+                    if(typeof(session_data['expire'])!='number'){
+                      session_data   = this.decrypt(session_data);
+                    }               
+                    
                     session_data['encrypt'] = false;
                   }
                 }
@@ -86,6 +89,7 @@ export default {
                 var encoding    = v_session.encoding;
                 var algorithm   = v_session.algorithm;
                 session_data    = cryptoJSON.decrypt( session_data, v_session.secret_key, { encoding, keys, algorithm} )
+                session_data['encrypt'] = false;
                 return session_data;
             },
             get: function(key){                
@@ -152,7 +156,17 @@ export default {
                 }
                 v_this.sets(session_data);
                 return session_data
-            }            
+            },
+            destroy: function(){
+                let v_this = vue.prototype.$v_session;
+                if (v_session.encrypt && v_session.secret_key!==null){
+                    var session_data = {'encrypt': false };
+                }else{
+                    var session_data = {};
+                }
+                v_this.sets(session_data);
+                return session_data
+            }
         }
         vue.prototype.$v_session.init();
     }
