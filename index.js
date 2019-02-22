@@ -40,7 +40,7 @@ export default {
                 var t;
                 var off = v_session.inactive_session * 60 * 1000; 
                 clearTimeout(t);
-                if(v_session.inactive_session!==null) t = setTimeout(v_this.clear, off)                
+                if(v_session.inactive_session!==null) t = setTimeout(v_this.destroy, off)                
                 else t = setInterval(v_this.refresh, 1000)
             },
             refresh: function(){
@@ -69,7 +69,7 @@ export default {
                     
                 if(expire !== null && new Date().getTime() < expire) return session_data || {};
                 else if(expire == null) this.setInit();
-                else return this.clear();
+                else return this.destroy();
 
                 return session_data;
             },
